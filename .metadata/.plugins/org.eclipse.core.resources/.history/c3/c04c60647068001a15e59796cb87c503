@@ -1,0 +1,19 @@
+package Assignment3;
+
+import java.util.Scanner;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		DeleteClassjdbcCall d= new DeleteClassjdbcCall();
+		Scanner s=new Scanner(System.in);
+System.out.println("eneter the name of student ho is leaving");
+int rollno=s.nextInt();
+String leaving_date =s.next();
+
+d.deleteandUpdate(rollno, leaving_date);
+
+	}
+
+}

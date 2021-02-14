@@ -1,0 +1,39 @@
+package com.wipro.sale.dao;
+import java.sql.*;
+import com.wipro.sale.bean.Sales;
+import com.wipro.sale.util.DBUtil;
+
+public class SalesDao {
+	Connection conn;
+	PreparedStatement pstmt =null;
+	
+	SalesDao(){
+		DBUtil db=new DBUtil();
+		conn = db.getDBConnection();
+	}
+	
+public int insertSales(Sales sales) throws SQLException {
+	String sql = "INSERT INTO TBL_SALES VALUES(?,?,?,?,?)";
+
+	java.sql.Date date = new java.sql.Date(sales.getSaleDate().getTime());
+	
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1,sales.getSaleID());
+	pstmt.setDate(2,date);
+	pstmt.setString(3,sales.getProductID());
+	pstmt.setInt(4, sales.getQuantitySold());
+	pstmt.setInt(5, sales.getSalePricePerUnit());
+	if(pstmt.executeUpdate() == 1)
+		return 1;
+	else return 0;
+}
+public String generateSalesID(java.util.Date saleDate) throws SQLException {
+	int SEQ_SALES_ID = 0;
+	String out = saleDate.toString().substring(saleDate.toString().length()-2, saleDate.toString().length());
+	
+pstmt = conn.prepareStatement("SELECT SEQ_SALES_ID.NEXTVAL FROM DUAL");
+
+
+
+}
+}

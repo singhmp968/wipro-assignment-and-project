@@ -1,0 +1,28 @@
+package SetOfBox;
+
+public class Box {
+private double l;
+private double b;
+private double h;
+
+
+public double getL() {
+	return l;
+}
+public void setL(double l) {
+	this.l = l;
+}
+public double getB() {
+	return b;
+}
+public void setB(double b) {
+	this.b = b;
+}
+public double getH() {
+	return h;
+}
+public void setH(double h) {
+	this.h = h;
+}
+
+}

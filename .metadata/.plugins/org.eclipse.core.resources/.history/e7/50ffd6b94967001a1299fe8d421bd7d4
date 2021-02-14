@@ -1,0 +1,31 @@
+package Exempe1;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JdbcCall {
+Connection con;
+JdbcCall(){
+	ConnectionClass x= new ConnectionClass();
+	con=x.connectionFactory();
+}
+void insery(String [] args) throws SQLException {
+	String tablename = args[0];
+	int empid = Integer.parseInt(args[1]);
+	String empname = args[2];
+	String dept = args[3];
+	String dat = args[4];
+	Float salary = Float.parseFloat(args[5]);
+	PreparedStatement pst = con.prepareStatement("insert into "+ tablename + " values(?,?,?,?,?) ");
+
+pst.setInt(1, empid);
+pst.setString(2, empname);
+pst.setString(3, dept);
+pst.setString(4,dat);
+pst.setFloat(4, salary);
+pst.executeUpdate();
+System.out.println("Record inserted Sucessfully");
+}
+
+}

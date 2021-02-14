@@ -1,0 +1,19 @@
+package Assignment1;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Assign1jdbd {
+public static void main(String args[]) throws SQLException {
+String url="jdbd:oracle:thin:@localhost:1521:XE";
+	try {
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	//Connection conn = DriverManager.getConnection("","system","root");
+System.out.println("Connection Established Successfully");
+}catch(ClassNotFoundException e) {
+	System.out.println("Connection not Established Successfully");
+	
+}
+}
+}

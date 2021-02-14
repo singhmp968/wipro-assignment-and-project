@@ -1,0 +1,37 @@
+package Callabel;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+
+public class ExCallable {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+new ExCall();
+	}
+	class ExCall{
+		ExCall(){
+			int lastodNum;
+			Connection conn;
+			try {
+				ConnectionnnClass x=new ConnectionnnClass();
+				conn = x.connectionFactory();
+				String qury = "{CALL lastodNum(?)}";
+				CallableStatement cstatement=conn.prepareCall(qury);
+				cstatement.registerOutParameter(1, Types.INTEGER);
+				cstatement.execute();
+				lastodNum=cstatement.getInt(1);
+				
+				System.out.println("The Last Order Number :" + lastodNum);
+				cstatement.close();
+				conn.close();
+				
+			}catch(SQLException e) {
+				System.out.print("cannot connect database " + e);
+			}
+		}
+	}
+
+}

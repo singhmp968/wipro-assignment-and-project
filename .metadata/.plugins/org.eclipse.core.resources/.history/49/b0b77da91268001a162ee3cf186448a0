@@ -1,0 +1,68 @@
+package Assignment1;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class JDBCCall {
+
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+//int roll_no=Integer.parseInt(args[0]);
+//String name = args[1];
+//String []
+		int op=0;
+	Scanner s=new Scanner(System.in);
+	do {
+		
+		System.out.println("\n1.insert\n2.Delete\n3.Modify \n4.Display with int \n5.Display \n6.Exit");;
+
+	 op =s.nextInt();
+	
+	DOAClass da  =new DOAClass();
+	//da.create();
+	switch(op) {
+	case 1:
+		System.out.println("Eneter roll");
+		int roll_no = s.nextInt();
+		System.out.println("Eneter nmae");
+		String name =s.next();
+		System.out.println("Enete grad");
+		String grad = s.next();
+		System.out.println("Eneter dob");
+		String dob=s.next();
+		System.out.println("Eneter fees");
+		int fees = s.nextInt();
+		da.insert(roll_no, name, grad, dob, fees);
+		
+		break;
+	case 2:
+		System.out.println("Eneter the roll number you want to delete");
+		int roll_n = s.nextInt();
+		if(da.delete(roll_n)) {
+			System.out.println("delete sucess fully");
+		}else {System.out.println("Not delete");
+		
+	}
+		break;
+	case 3:
+		System.out.println("Eneter the roll_no");
+		int roll = s.nextInt();
+		int fee = s.nextInt();
+		da.modify(roll, fee);
+		break;
+	
+	case 4:
+		System.out.println("Eneter the roll_no you want to display");
+	
+			int rol = s.nextInt();
+			da.display(rol);
+			break;
+	case 5:
+		da.display();
+	break;
+	
+	}}while(op!=6);
+	
+
+}
+}

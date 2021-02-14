@@ -1,0 +1,11 @@
+package InsertExe;
+import java.sql.*;
+
+import Exempe1.JdbcCall;
+public class JInsert {
+	public static void main(String args[]){
+        try {JdbcCall e = new JdbcCall();
+        e.insert(args);}catch(SQLException e) {
+            System.out.println(e.toString());}
+	}
+}

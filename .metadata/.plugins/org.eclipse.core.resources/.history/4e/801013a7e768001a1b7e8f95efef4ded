@@ -1,0 +1,6 @@
+package Assignment1;
+
+public class MainClass {
+jdbbcCall j =new jdbbcCall();
+j.qury();
+}

@@ -1,0 +1,70 @@
+package com.wipro.sale.dao;
+import java.sql.*;
+import com.wipro.sale.bean.Product;
+import com.wipro.sale.util.DBUtil;
+
+public class StockDao {
+	Connection conn=null;
+	PreparedStatement pstmt = null;
+	StockDao(){
+		DBUtil db= new DBUtil();
+		conn = db.getDBConnection();
+	}
+	
+	public int insertStock(Product sale) throws SQLException{
+		
+		String sql = "INSERT INTO TBL_STOCK";
+		pstmt =conn.prepareStatement(sql);
+		pstmt.setString(1,sale.getProductId());
+		pstmt.setString(2, sale.getProductName());
+		pstmt.setString(3, sale.getQuantityOnHand());
+		pstmt.setDouble(4, sale.getProductUnitPrice());
+		pstmt.setInt(5, sale.getRecordLevel());
+		if(pstmt.executeUpdate()==1) {
+			return 1;
+		}else return 0;
+	}
+	
+	public String generateProductID(String productName) throws SQLException {
+		String abc="";
+		int SEQ_PiD=0;
+		String sql = "SELECT SEQ_PRODUCT_ID.NEXTVAL FROM DUAL";
+		pstmt=conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		SEQ_PiD = rs.getInt(1);
+		abc+=productName.substring(0,2) + SEQ_PiD;
+	return abc;
+		
+		
+		
+	}
+	public boolean updateStock(String pid,int soldQty) throws SQLException {
+		
+		pstmt = conn.prepareStatement("UPDATE TBL_STOCK SET Quantity_On_Hand = Quantity_On_Hand -?" + "Where Product_id = ?");
+	
+	pstmt.setString(1, pid);
+	pstmt.setInt(2, soldQty);
+	if(pstmt.executeUpdate() == 1) {
+		return true;
+	}else return false;
+	
+	}
+	public Product getStock(String pid) throws SQLException
+	{
+		Product pstck = new Product();
+		String sql = "select * from TBL_STOCK where Product_ID = ?";
+		pstmt.setString(1,pid);
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		pstck.setProductId(rs.getString(1));
+		pstck.setProductName(rs.getString(2));
+		pstck.setQuantityOnHand(rs.getString(3));
+		pstck.setProductUnitPrice(rs.getDouble(4));
+		pstck.setReorderLevel(rs.getInt(5));
+		
+		return stock;
+		
+	}
+
+}

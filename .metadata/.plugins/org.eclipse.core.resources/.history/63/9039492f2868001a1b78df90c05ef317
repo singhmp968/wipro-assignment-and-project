@@ -1,0 +1,26 @@
+package Assignment2;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+
+
+public class JdbcCall {
+ Connection conn;
+PreparedStatement pstmt=null;
+public JdbcCall() {
+	ConnectionClass db =new ConnectionClass();
+	conn=db.connectionFactory();
+}
+public static void insert(int rollno,String StudentName,String Standard,String dob,double fees) {
+	
+	
+	String sql = "INSERT INTO studTab VALUES(?,?,?,?,?)";
+	pstmt = conn.prepaerStarement(sql);
+	
+	
+}
+
+
+
+}

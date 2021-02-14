@@ -1,0 +1,7 @@
+package InsertExe;
+import java.sql.*;
+public class jdbcCall {
+
+	
+	
+}

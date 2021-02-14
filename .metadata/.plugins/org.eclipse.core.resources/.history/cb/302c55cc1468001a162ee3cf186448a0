@@ -1,0 +1,100 @@
+package Assignment1;
+import java.sql.*;
+public class DOAClass {
+Connection conn;
+PreparedStatement pstmt=null ;
+public DOAClass() {
+	DbUtil db = new DbUtil();
+	conn=db.connectionFactory();
+}
+
+
+//void create() throws SQLException {
+//	String tablename = "stud";
+//	pstmt = conn.prepareStatement("create table " + tablename +" (roll_no number(4), name varchar(20), grad varchar2(20), date varchar(20), fees(number(10,2)))");
+//	
+//pstmt.executeUpdate();
+//}
+
+
+
+
+public void insert(int roll_no,String name,String grad,String dob,int fees) throws SQLException  {
+	
+	
+	pstmt = conn.prepareStatement("INSERT INTO STUDDB VALUES(?, ?, ?, ?, ?)");
+	pstmt.setInt(1,roll_no);
+	pstmt.setString(2, name);
+	pstmt.setString(3, grad);
+	pstmt.setString(4, dob);
+	pstmt.setInt(5, fees);
+	pstmt.executeUpdate();
+	System.out.println("Data entered sucessfully");
+	}
+	
+
+public boolean delete(int roll_no) throws SQLException  {
+	
+	
+	pstmt = conn.prepareStatement("DELETE STUDDB WHERE ROLL_NO = ?");
+	pstmt.setInt(1, roll_no);
+	pstmt.executeUpdate();
+	//System.out.println("Record deleted Sucessfully");
+	return true;
+	}
+	
+
+public boolean modify(int roll_no,int fees)  {
+	String sql = "UPDATE STUDDB SET fees = ? WHERE ROLL_NO = ?";
+	try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, fees);
+		pstmt.setInt(2, roll_no);
+		pstmt.executeUpdate();
+		return true;
+	} catch (SQLException e) {
+		return false;
+	}	
+}
+public void display(int roll_no) throws SQLException {
+
+		pstmt = conn.prepareStatement("SELECT * from STUDDB WHERE ROLL_NO = ?");
+		pstmt.setInt(1, roll_no);
+	ResultSet rs=pstmt.executeQuery();
+	ResultSetMetaData rsmd = rs.getMetaData();
+	while(rs.next()) {
+		StringBuilder sb =new StringBuilder();
+		for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+			String colName = rsmd.getColumnName(i);
+			
+			sb.append(rs.getObject(colName));
+			if (i!= rsmd.getColumnCount()) sb.append(", ");
+		}
+		System.out.println(sb);
+	}
+}
+
+public void display() throws SQLException {	
+	
+		pstmt = conn.prepareStatement("SELECT * FROM STUDDB");
+		ResultSet rs = pstmt.executeQuery();
+		ResultSetMetaData rsmd = rs.getMetaData();
+		
+		while (rs.next()) {
+			StringBuilder sb = new StringBuilder();
+			
+			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+				String colName = rsmd.getColumnName(i);
+				
+				sb.append(rs.getObject(colName));
+				if (i != rsmd.getColumnCount()) sb.append(", ");
+			}
+			
+			System.out.println(sb);
+		}
+		
+	
+	}
+
+}
+

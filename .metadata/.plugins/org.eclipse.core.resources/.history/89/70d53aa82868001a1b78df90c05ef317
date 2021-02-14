@@ -1,0 +1,23 @@
+package Assignment2;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JdbcCall {
+ Connection conn=null;
+PreparedStatement pstmt=null;
+public JdbcCall(){
+	ConnectionClass db =new ConnectionClass();
+	conn=db.connectionFactory();
+}
+public static void insert(int rollno,String StudentName,String Standard,String dob,double fees) throws SQLException {
+	String sql = "INSERT INTO stdnt VALUES(?, ?, ?, ?, ?)";
+	pstmt = conn.prepareStatement(sql);
+	
+	
+}
+
+
+
+}

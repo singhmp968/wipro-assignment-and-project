@@ -1,0 +1,35 @@
+package Assignment1;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class JDBCCall {
+
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+//int roll_no=Integer.parseInt(args[0]);
+//String name = args[1];
+//String []
+	Scanner s=new Scanner(System.in);
+	
+	int op =s.nextInt();
+	DOAClass da  =new DOAClass();
+	switch(op) {
+	case 1:
+		System.out.println("Eneter roll");
+		int roll_no = s.nextInt();
+		System.out.println("Eneter nmae");
+		String name =s.next();
+		System.out.println("Enete grad");
+		String grad = s.next();
+		System.out.println("Eneter dob");
+		String dob=s.next();
+		System.out.println("Eneter fees");
+		int fees = s.nextInt();
+		da.insert(roll_no, name, grad, dob, fees);
+		
+		break;
+	}
+	}
+
+}

@@ -1,0 +1,70 @@
+package Assignment2;
+
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class MainClass {
+	 static JdbcCall jd =new JdbcCall();
+public static void main(String args[]) throws SQLException, ParseException {
+	Scanner s=new Scanner(System.in);
+	int rollno=0;
+	do {
+	System.out.println("Eneter the Roll Number");
+	 rollno = s.nextInt();
+	String str="";
+	str+=rollno;
+	if(str.length()!=4) {
+		System.out.print("Eneter at least 4 character");
+		rollno = 0;
+	}
+	}while(rollno== 0);
+	//System.out.print("Eneter at least 4 character" + rollno);
+	String studName="";
+	String sn="";
+	do {
+		System.out.println("Eneter the Student name");
+		sn = s.nextLine();
+		studName=sn.toUpperCase();
+		if(studName.length()>20) {
+			System.out.print("Shoould be within 20 char");
+			
+			studName= "";
+		}
+}while(studName=="");
+//System.out.println(studName);
+
+String standard = "";
+String std[] = {"I", "II", "III", "IV", "V", "Vi", "VII", "VIII", "IX", "X"}; 
+List<String> li =new ArrayList<>(Arrays.asList(std));
+do {
+	System.out.println("Eneter Standard");
+	standard=s.next();
+
+	
+}while(!li.contains(standard));
+
+String DOB = "";
+System.out.println("Eneter DATE of Birth in dd-MM-YYyy format");
+DOB = s.next();
+SimpleDateFormat dsf = new SimpleDateFormat("dd-MM-yy");
+java.util.Date udob=dsf.parse(DOB);
+java.sql.Date sqdob = new java.sql.Date(udob.getTime());
+double amt = 0.0;
+do {
+	System.out.println("Enetr The amount");
+	amt=s.nextDouble();
+	if(amt == 0.0) {
+		System.out.println("amount should be greate then 0.0");
+			amt=0.0;
+	}
+}while(amt==0.0);
+
+jd.insert(rollno,studName,standard,sqdob,amt);
+}
+
+}

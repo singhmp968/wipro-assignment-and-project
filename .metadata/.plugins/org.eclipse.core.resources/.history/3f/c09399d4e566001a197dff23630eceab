@@ -1,0 +1,29 @@
+package Assignment1;
+
+import java.util.Scanner;
+
+public class Assignment1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner s=new Scanner(System.in);
+Employee e = new Employee();
+		System.out.println("Enter name of Employee");
+String name = s.next();
+e.setName(name);
+System.out.println("Enter Department");
+String dept = s.next();
+e.setDept(dept);
+System.out.println("Eneter the Salary");
+double sal = s.nextDouble();
+e.setSal(sal);
+System.out.println("date of birth");
+String date = s.next();
+e.setDob(date);
+System.out.println("Enter desigination");
+String desi = s.next();
+e.setDesi(desi);
+	
+	}
+
+}

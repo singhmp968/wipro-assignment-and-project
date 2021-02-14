@@ -1,0 +1,33 @@
+package Assignment3;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class DeleteClassjdbcCall {
+	Connection conn=null;
+	PreparedStatement pstmt=null;
+	DeleteClassjdbcCall(){
+		ConnectionClass db=new ConnectionClass();
+		conn = db.connectionFactory();
+	}
+	public void deleteandUpdate(int rollno) throws SQLException {
+		
+		
+		String sqlin = "INSERT INTO stud2_log SELECT * FROM studTab WHERE rollno = ?";
+		pstmt = conn.prepareStatement(sqlin);
+		pstmt.setInt(1,rollno);
+		 pstmt.executeUpdate();
+		//String a=leavingdate;
+		String sql = "DELETE FROM studTab where rollno=?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1,rollno);	
+		pstmt.executeUpdate();
+		if(pstmt.executeUpdate()==1 && lo==1) {
+			System.out.println("delete and update sucess fully in stud_log");
+		}else {
+			System.out.println("Error ");
+		}
+	}
+	
+}

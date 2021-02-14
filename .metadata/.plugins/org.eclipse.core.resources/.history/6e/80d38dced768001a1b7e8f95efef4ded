@@ -1,0 +1,15 @@
+package Assignment5;
+
+import java.util.Scanner;
+
+public class MainClass {
+public static void main(String args[]) {
+	JdbcDisplayClass jd =new JdbcDisplayClass();
+	
+	Scanner s=new Scanner(System.in);
+	int rollno = s.nextInt();
+	if(rollno==0) {
+		
+	}
+}
+}

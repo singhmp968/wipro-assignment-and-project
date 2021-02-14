@@ -1,0 +1,22 @@
+package com.wipro.sale.dao;
+import java.sql.*;
+import com.wipro.sale.bean.Sales;
+import com.wipro.sale.util.DBUtil;
+
+public class SalesDao {
+	Connection conn;
+	PreparedStatement pstmt =null;
+	
+	SalesDao(){
+		DBUtil db=new DBUtil();
+		conn = db.getDBConnection();
+	}
+	
+public int insertSales(Sales sales) {
+	String sql = "INSERT INTO TBL_SALES VALUES(?,?,?,?,?)";
+
+	java.sql.Date date = new java.sql.Date(sales.getSaleDate().getTime());
+	
+	conn=D
+}
+}

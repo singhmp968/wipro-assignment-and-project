@@ -1,0 +1,47 @@
+package Assignment2;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class MainClass {
+public static void main(String args[]) {
+	Scanner s=new Scanner(System.in);
+	int rollno=0;
+	do {
+	System.out.println("Eneter the Roll Number");
+	 rollno = s.nextInt();
+	String str="";
+	str+=rollno;
+	if(str.length()!=4) {
+		System.out.print("Eneter at least 4 character");
+		rollno = 0;
+	}
+	}while(rollno== 0);
+	//System.out.print("Eneter at least 4 character" + rollno);
+	String studName="";
+	String sn="";
+	do {
+		System.out.println("Eneter the Student name");
+		sn = s.next();
+		studName=sn.toUpperCase();
+		if(studName.length()>20) {
+			System.out.print("Shoould be within 20 char");
+			
+			studName= "";
+		}
+}while(studName=="");
+System.out.println(studName);
+
+String standard = "";
+String std[] = {"I", "II", "III", "IV", "V", "Vi", "VII", "VIII", "IX", "X"}; 
+List<String> li =new ArrayList<>(Arrays.asList(std));
+do {
+	System.out.println("Eneter Standard");
+	standard=s.nextLine();
+
+	
+}while(!li.contains(std));
+}
+}

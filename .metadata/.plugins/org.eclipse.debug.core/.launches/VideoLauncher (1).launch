@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/Wipro-Training-Module2---A-Video-Rental-Inventory-System-master/Wipro-Training-Module2---A-Video-Rental-Inventory-System-master/src/com/w3epic/wiprotraining/main/VideoLauncher.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.w3epic.wiprotraining.main.VideoLauncher"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Wipro-Training-Module2---A-Video-Rental-Inventory-System-master"/>
+</launchConfiguration>

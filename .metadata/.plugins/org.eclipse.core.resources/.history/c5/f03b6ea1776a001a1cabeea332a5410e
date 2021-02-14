@@ -1,0 +1,8 @@
+package com.wipro.sale.service;
+
+import com.wipro.sale.dao.StockDao;
+
+public class Adminstrator {
+StockDao stockDao = new StockDao();
+
+}

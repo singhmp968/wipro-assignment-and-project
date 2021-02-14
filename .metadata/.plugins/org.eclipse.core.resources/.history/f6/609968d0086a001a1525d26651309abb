@@ -1,0 +1,80 @@
+package Assignment2;
+
+public class Employee {
+	private int empId;
+	private String empName ;
+	private String email ;
+	private String gender;
+	private float salary;
+
+	
+	public Employee() {}
+
+	public Employee(int empId, String empName, String empEmail, String empGender, float empSalary) {
+		super();
+		this.empId= empId;
+		this.empName = empName;
+		this.email=empEmail;
+		this.gender = empGender;
+		this.salary = empSalary;
+	}
+	
+	
+	public void setEmId(int emId)
+	{
+		this.empId=emId;
+	}
+	public int getEmId()
+	{
+		return empId;
+	}
+	public void setEmId(String empName)
+	{
+		this.empName=empName;
+	}
+	public String getEmpName()
+	{
+		return empName;
+	}
+	
+	
+	public void setEmpmail(String empEmail)
+	{
+		this.email=empEmail;
+	}
+	public String getEmpEmail()
+	{
+		return email;
+	
+}
+
+
+	public void setEmpGen(String empgen)
+	{
+		this.gender=empgen;
+	}
+	public String getEmpGender()
+	{
+		return gender;
+	
+	}
+
+	public void setEmSal(float empsal)
+	{
+		this.salary=empsal;
+	}
+	public float getEmpsal()
+	{
+		return salary;
+	
+}
+
+
+public String GetEmployeeDetails()
+{
+	return"Emplouee Name-" + empName + "EmployeeId-" + empId + "Employee Email" + email+" gender " + gender + "");
+	
+
+
+}
+}

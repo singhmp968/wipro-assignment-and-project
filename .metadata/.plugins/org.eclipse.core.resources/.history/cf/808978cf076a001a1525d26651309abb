@@ -1,0 +1,53 @@
+package Assignment2;
+
+import java.util.ArrayList;
+
+import java.util.Iterator;
+import java.util.List;
+public class EmployeeDb {
+ArrayList<Employee> emp=new ArrayList<>();
+public boolean addEmployee(Employee e)
+{
+	return emp.add(e);
+	
+}
+
+
+public boolean deleteEmployee(int empId)
+{boolean remove=false;
+Iterator<Employee> it1=emp.iterator();
+while(it1.hasNext())
+{
+	Employee em1=it1.next();
+
+if(em1.getEmId() == empId) {
+	remove=true;
+	it1.remove();
+}
+}
+	
+	
+return remove;	
+}
+
+public String showPaySlip(int empId)
+{String paySlip="";
+	Iterator<Employee> it1=emp.iterator();
+	while(it1.hasNext())
+	{
+		Employee emp1=it1.next();
+		if(emp1.getEmId()==empId) {
+			paySlip += emp1.getEmpsal();
+		}
+	}
+return paySlip;
+}
+
+public Employee[] listAll() {
+	Employee[] empArray = new Employee[employeeDb.size()];
+	for (int i = 0; i < employeeDb.size(); i++)
+		empArray[i] = employeeDb.get(i);
+	return empArray;
+}
+
+}

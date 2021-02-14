@@ -1,0 +1,16 @@
+package Assignment2;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import Assignment1.DbUtil;
+
+public class JdbcCall {
+Connection conn;
+PreparedStatement pstmt=null;
+public JdbcCall() {
+	ConnectionClass db =new ConnectionClass();
+	conn=db.connectionFactory();
+}
+
+}

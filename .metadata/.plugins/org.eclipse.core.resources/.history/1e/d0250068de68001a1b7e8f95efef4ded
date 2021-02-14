@@ -1,0 +1,21 @@
+import java.sql.*;
+class ExCallable{
+    public static void main (String args[]){
+        new ExCall();}}
+        class ExCall {
+            ExCall() {
+                int lastOrderNumber;
+                Connection conn;
+                try {ConnectionnnClass x = new ConnectionnnClass();
+                conn=x.connectionFactory();
+                String query ="{ CALL LastOrderNumber (?)}";
+                CallableStatement cstatement = conn.prepareCall(query);
+                cstatement.registerOutParameter(1, Types.INTEGER);
+                cstatement.execute();
+                lastOrderNumber = cstatement.getInt(1);
+                System.out.println("The last order number :"+lastOrderNumber);
+                cstatement.close();
+                conn.close();}catch (SQLException error) {
+                    System.out.println("Cannot connect to database "+ error);}}
+            
+        }

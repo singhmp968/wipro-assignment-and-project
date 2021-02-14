@@ -1,0 +1,17 @@
+package InsertExe;
+import java.sql.*;
+public class jdbcCall {
+
+	Connection con;
+	JdbcCalls() {
+	    ConnectionClass x = new ConnectionClass();
+	    con=x.connectionFactory();}
+	    void insert(String[] args) throws SQLException {
+	        String tablename = args[0];
+	        int empid = Integer.parseInt(args[1]);
+	        String empname = args[2];
+	        String dept = args[3];
+	        String dat=args[4];
+	        Float salary = Float.parseFloat(args[5])
+	
+}

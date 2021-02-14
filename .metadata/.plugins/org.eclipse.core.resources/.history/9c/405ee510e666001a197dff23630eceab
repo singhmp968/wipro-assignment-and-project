@@ -1,0 +1,56 @@
+package Assignment1;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+public class Assignment1 {
+
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+Scanner s=new Scanner(System.in);
+Employee e = new Employee();
+		System.out.println("Enter name of Employee");
+String name = s.next();
+e.setName(name);
+System.out.println("Enter Department");
+String dept = s.next();
+e.setDept(dept);
+System.out.println("Eneter the Salary");
+double sal = s.nextDouble();
+e.setSal(sal);
+System.out.println("date of birth");
+String date = s.next();
+e.setDob(date);
+System.out.println("Enter desigination");
+String desi = s.next();
+e.setDesi(desi);
+	
+
+FileOutputStream fos = new FileOutputStream("OutObject.txt");
+ObjectOutputStream oos = new ObjectOutputStream(fos);
+oos.writeObject(e);
+
+FileInputStream fis = new FileInputStream("OutObject.txt");
+ObjectInputStream ois = new ObjectInputStream(fis);
+Employee emp2 = (Employee) ois.readObject();
+
+System.out.println("Name: " + emp2.getName());
+System.out.println("D.O.B.: " + emp2.getDob());
+System.out.println("Department: " + emp2.getDept());
+System.out.println("Designation: " + emp2.getDesi());
+System.out.println("Salary: " + emp2.getSal());
+
+fos.close();
+oos.close();
+fis.close();
+ois.close();
+//s.close();
+	}
+
+
+}

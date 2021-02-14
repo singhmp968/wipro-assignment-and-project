@@ -1,0 +1,13 @@
+package Assignment1;
+import java.sql.*;
+public class jdbbcCall {
+Connection conn=null;
+Statement stmt=null;
+CallableStatement cstmt = null;
+jdbbcCall(){
+	ConnClass x=new ConnClass();
+	conn = x.connectionFactory();
+}
+
+
+}

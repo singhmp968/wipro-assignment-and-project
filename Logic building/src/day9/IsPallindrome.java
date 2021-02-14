@@ -1,0 +1,33 @@
+package day9;
+
+import java.util.Arrays;
+
+public class IsPallindrome {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println(isPalindrome("123"));
+	}
+	public static boolean isPalindrome(String str){
+		int arr[] = new int[256];
+		Arrays.fill(arr,0);
+		for(int i=0;i<str.length();i++)
+		{
+			int c=str.charAt(i);
+			arr[c]++;
+			
+		}
+		int o=0;
+		for(int i=0;i<256;i++)
+		{
+			if((arr[i] & 1)==1)
+					o++;
+				if(o>0)
+				return false;
+			
+		}
+		
+	return true;}
+
+}

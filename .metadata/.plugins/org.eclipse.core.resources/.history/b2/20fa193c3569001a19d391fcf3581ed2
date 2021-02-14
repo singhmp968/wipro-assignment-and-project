@@ -1,0 +1,19 @@
+package com.wipro.sale.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DBUtil {
+	String url ="jdbc:oracle:thin:@localhost:1521:XE";
+	Connection conn = null;
+	public Connection 	connectionFactory() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection(url,"hr12","root");
+		}catch(Exception e) {
+			System.out.println("asda");
+		}
+		return conn;
+		}
+}

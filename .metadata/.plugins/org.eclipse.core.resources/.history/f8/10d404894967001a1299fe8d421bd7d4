@@ -1,0 +1,28 @@
+package Exempe1;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JdbcCall {
+Connection conn;
+
+JdbcCall(){
+
+ConnectionClass x=new ConnectionClass();
+conn = x.connectionFactory();
+	
+
+}
+
+
+public void create(String [] args) throws SQLException {
+	String tablename = args[0];
+	PreparedStatement pst = conn.prepareStatement("Create Table" + tablename +"(empId number(4),empname varchar(20),dept varchar2(20),joindate date,salary(number(10,2)))");
+pst.executeUpdate();
+System.out.println("Created Success fully");
+
+}
+
+
+}

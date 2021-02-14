@@ -1,0 +1,42 @@
+package com.wipro.sale.main;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+import com.wipro.sale.bean.Product;
+import com.wipro.sale.service.Adminstrator;
+
+public class saleApplication {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner s=new Scanner(System.in);
+Adminstrator ad = new Adminstrator();
+Product pdk = new Product();
+
+int ch=0;
+do {
+	
+	System.out.println("1.Insert Stock\n2.Delete Stock\n3.Insert Sales \n4.View Sale Report");
+	System.out.println("Eneter Your Choice");
+	ch = s.nextInt();
+	switch(ch) {
+	case 1:
+	System.out.println("Eneter Product Id");
+	String pid = s.next();
+	pdk.setProductId(pid);
+	System.out.println("Enter Product Name");
+	String pName = s.next();
+	pdk.setProductName(pName);
+	System.out.println("Enter Quantity on hand");
+	int QtyIHand = s.nextInt();
+	pdk.setQuantityOnHand(QtyIHand);
+	
+	
+	}
+	
+}
+
+	}
+
+}

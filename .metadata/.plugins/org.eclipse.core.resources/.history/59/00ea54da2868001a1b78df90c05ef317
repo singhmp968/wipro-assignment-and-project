@@ -1,0 +1,29 @@
+package Assignment2;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JdbcCall {
+
+	static Connection conn=null;
+static PreparedStatement pstmt=null;
+public JdbcCall(){
+	ConnectionClass db =new ConnectionClass();
+	conn=db.connectionFactory();
+}
+public static void insert(int rollno,String StudentName,String Standard,String dob,double fees) throws SQLException {
+	String sql = "INSERT INTO studTab VALUES(?, ?, ?, ?, ?)";
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setInt(1, rollno);
+	pstmt.setString(2, StudentName);
+	pstmt.setString(3, Standard);
+	pstmt.setString(4, dob);
+	pstmt.setDouble(5, fees);
+	pstmt.executeQuery();
+	
+}
+
+
+
+}

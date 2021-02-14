@@ -1,0 +1,44 @@
+package SetOfBox;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+
+public class MainClass {
+public static void main(String args[]) {
+	//List<Double> li = new ArrayList<Double>();
+	Set<Box> se = new TreeSet<>();
+	Scanner s=new Scanner(System.in);
+	System.out.println("Eneter no of Box");
+	int n = s.nextInt();
+	for(int i=1;i<=n;i++) {
+		Box b=new Box();
+		System.out.println("Eneter Box " + i);
+		System.out.println("Eneter length " + i);
+		double l = s.nextDouble();
+	
+		System.out.println("Eneter breadth " + i);
+		double b1 = s.nextDouble();
+
+		System.out.println("Eneter height " + i);
+double h = s.nextDouble();
+Box bo = new Box(l,b1,h);
+
+se.add(bo);
+
+//	}
+//	Iterator<Box> it =se.iterator();
+//	while(it.next()) {
+//		
+System.out.println("Unique Boxes in set are");
+for(Box bo1:se) {
+	System.out.println(bo1);
+}
+	}
+	
+	
+}
+}

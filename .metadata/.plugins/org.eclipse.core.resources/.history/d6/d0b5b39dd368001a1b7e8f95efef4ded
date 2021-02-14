@@ -1,0 +1,14 @@
+package Assignment4;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class MainClass {
+public static void main(String rags[]) throws SQLException {
+	JdbdModify j=new JdbdModify();
+	Scanner s=new Scanner(System.in);
+	int rollno=s.nextInt();
+	Double fee = s.nextDouble();
+	j.Modify(rollno,fee);
+}
+}

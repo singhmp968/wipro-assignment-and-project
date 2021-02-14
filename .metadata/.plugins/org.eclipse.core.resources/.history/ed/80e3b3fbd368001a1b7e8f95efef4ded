@@ -1,0 +1,29 @@
+package Assignment4;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import Assignment3.ConnectionClass;
+
+public class JdbdModify {
+Connection conn=null;
+PreparedStatement pstmt = null;
+JdbdModify(){
+	ConnectionClass db=new ConnectionClass();
+	conn = db.connectionFactory();
+}
+	public void Modify(int rollno,double fees) throws SQLException {
+		String sql = "UPDATE studTab SET fees = ? Where rollno=?";
+		pstmt=conn.prepareStatement(sql);
+	pstmt.setDouble(1,fees);
+	pstmt.setInt(2,rollno);
+	if(pstmt.executeUpdate()==1) {
+		System.out.println("Update sucess fully");
+	}else {
+		System.out.println("not Update sucess fully");
+	}
+	}
+	
+	
+}
